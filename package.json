@@ -1,22 +1,57 @@
 {
-  "name": "boardroom-dashboard",
+  "name": "dao-governance-dashboard",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "yarn prettier --write . --single-quote --no-semi"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.0",
+    "@nivo/bar": "^0.73.1",
+    "@nivo/core": "^0.73.0",
+    "@nivo/line": "^0.73.0",
+    "@nivo/pie": "^0.73.0",
+    "@nivo/sunburst": "^0.73.0",
+    "@tailwindcss/forms": "^0.3.3",
+    "@tailwindcss/typography": "^0.4.1",
+    "@types/javascript-time-ago": "^2.0.3",
+    "axios": "^0.21.1",
+    "ethers": "^5.4.6",
+    "javascript-time-ago": "^2.3.8",
+    "lodash.debounce": "^4.0.8",
+    "lodash.droprightwhile": "^4.6.0",
+    "lodash.groupby": "^4.6.0",
+    "lodash.orderby": "^4.6.0",
     "next": "11.1.0",
+    "query-string": "^7.0.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-blockies": "^1.4.1",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.2.0",
+    "react-infinite-scroll-component": "^6.1.0",
+    "react-markdown": "^7.0.1",
+    "swr": "^0.5.6"
   },
   "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "@types/lodash.debounce": "^4.0.6",
+    "@types/lodash.droprightwhile": "^4.6.6",
+    "@types/lodash.groupby": "^4.6.6",
+    "@types/lodash.orderby": "^4.6.6",
     "@types/react": "17.0.19",
+    "@types/react-blockies": "^1.4.1",
+    "autoprefixer": "^10.3.2",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
+    "jest": "^27.1.0",
+    "postcss": "^8.3.6",
+    "prettier": "^2.3.2",
+    "tailwindcss": "^2.2.7",
+    "ts-jest": "^27.0.5",
     "typescript": "4.3.5"
   }
 }
