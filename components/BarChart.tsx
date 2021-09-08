@@ -6,22 +6,24 @@ import { formatAddress, formatPercentage } from '../utils'
 interface BarChartProps {
   data: BarItem[]
   keys?: string[]
-  maxValue?: number
+  totalPowerCast?: number
 }
 
-const BarChart: React.FC<BarChartProps> = ({ data, keys, maxValue }) => {
+const BarChart: React.FC<BarChartProps> = ({ data, keys, totalPowerCast }) => {
   return (
     <ResponsiveBar
       data={data}
       keys={keys}
       indexBy="choice"
-      maxValue={maxValue ?? 'auto'}
+      maxValue={'auto'}
       padding={0.3}
       margin={{ bottom: 22 }}
       valueScale={{ type: 'linear' }}
       indexScale={{ type: 'band', round: true }}
       valueFormat={(value) =>
-        maxValue ? formatPercentage(value / maxValue) + '%' : String(value)
+        totalPowerCast
+          ? formatPercentage(value / totalPowerCast) + '%'
+          : String(value)
       }
       colors={{ scheme: 'paired' }}
       borderColor={{ from: 'color', modifiers: [['darker', 1.6]] }}

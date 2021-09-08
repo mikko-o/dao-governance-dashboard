@@ -17,13 +17,6 @@ const useBarChartData = (
     [sortedVotes]
   )
 
-  const maxValue = useMemo(() => {
-    const sums = Object.values(votesGrouped).map((group) =>
-      group.reduce((sum, item) => sum + item.power, 0)
-    )
-    return Math.max(...sums)
-  }, [votesGrouped])
-
   const getInitialState: () => Record<string, BarItem> = useCallback(() => {
     const state: Record<string, BarItem> = {}
     choices &&
@@ -43,7 +36,8 @@ const useBarChartData = (
       const newData = getInitialState()
       votes?.forEach((vote) => {
         const choice = choices[vote.choice]
-        newData[choice][formatAddress(vote.address)] = vote.power
+        if (newData[choice])
+          newData[choice][formatAddress(vote.address)] = vote.power
       })
       setBarChoiceData(newData)
     }
@@ -54,7 +48,7 @@ const useBarChartData = (
     [] as string[]
   )
 
-  return { barChartData: Object.values(barChoiceData), keys, maxValue }
+  return { barChartData: Object.values(barChoiceData), keys }
 }
 
 export default useBarChartData

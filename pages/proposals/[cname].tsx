@@ -62,7 +62,7 @@ const Protocol: NextPage<ProtocolPageProps> = ({
   })
 
   const { data: votes } = useSWR(
-    `/proposals/${refId}/votes?limit=${selectedProposal?.data.totalVotes}`,
+    `/proposals/${refId}/votes?limit=${selectedProposal?.data.totalVotes ?? 1}`,
     {
       initialData: initialVotes,
       revalidateOnMount: false,
@@ -117,7 +117,7 @@ const Protocol: NextPage<ProtocolPageProps> = ({
     selectedProposal?.data.choices
   )
 
-  const { barChartData, keys, maxValue } = useBarChartData(
+  const { barChartData, keys } = useBarChartData(
     selectedProposal?.data.results,
     selectedProposal?.data.choices,
     votes?.data
@@ -228,7 +228,11 @@ const Protocol: NextPage<ProtocolPageProps> = ({
         <div className="p-8 bg-white rounded-xl shadow flex justify-center items-stretch">
           {chartData && chartData.length > 0 ? (
             <div className="w-[500px] h-[300px] flex flex-col items-center justify-center">
-              <BarChart data={barChartData} keys={keys} maxValue={maxValue} />
+              <BarChart
+                data={barChartData}
+                keys={keys}
+                totalPowerCast={totalPowerCast}
+              />
             </div>
           ) : (
             <p className="text-gray-500">No voting results</p>
