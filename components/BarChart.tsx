@@ -17,6 +17,7 @@ const BarChart: React.FC<BarChartProps> = ({ data, keys, maxValue }) => {
       indexBy="choice"
       maxValue={maxValue ?? 'auto'}
       padding={0.3}
+      margin={{ bottom: 22 }}
       valueScale={{ type: 'linear' }}
       indexScale={{ type: 'band', round: true }}
       valueFormat={(value) =>
@@ -31,9 +32,6 @@ const BarChart: React.FC<BarChartProps> = ({ data, keys, maxValue }) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: 'country',
-        legendPosition: 'middle',
-        legendOffset: 32,
       }}
       labelSkipWidth={12}
       labelSkipHeight={12}
